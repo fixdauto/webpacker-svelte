@@ -1,7 +1,5 @@
 # Webpacker-Svelte [![CircleCI](https://circleci.com/gh/will-wow/webpacker-svelte.svg?style=svg)](https://circleci.com/gh/will-wow/webpacker-svelte)
 
-_**Note:** This is the documentation for the Git master branch. Documentation for the latest release (0.1.0) is [available here](https://github.com/will-wow/webpacker-svelte/tree/v0.1.0)._
-
 Webpacker-Svelte makes it easy to use [Svelte](https://svelte.dev) with [Webpacker](https://github.com/rails/webpacker) in your Rails applications.
 
 This is a port of [@renchap](https://github.com/renchap)'s excellent [webpacker-react](https://github.com/renchap/webpacker-react).
@@ -16,10 +14,10 @@ For more information, see the [blog post](https://blog.carbonfive.com/2019/10/29
 
 Your Rails application needs to use Webpacker and have the Svelte integration done. Please refer to their documentation documentation for this: https://github.com/rails/webpacker/blob/master/README.md#svelte
 
-First, you need to add the webpacker-svelte gem to your Rails app Gemfile:
+First, you need to add the [webpacker-svelte](https://rubygems.org/gems/webpacker-svelte) gem to your Rails app Gemfile:
 
 ```ruby
-gem 'webpacker-svelte', "~> 0.0.0"
+gem 'webpacker-svelte', "~> 1.0.0"
 ```
 
 Once done, run `bundle` to install the gem.
@@ -28,6 +26,7 @@ Then you need to update your `package.json` file to include the `webpacker-svelt
 
 ```bash
 npm i webpacker-svelte
+# Or
 yarn add webpacker-svelte
 ```
 
@@ -112,7 +111,7 @@ _Note: you need to have [Webpack process your code](https://github.com/rails/web
 
 ### Hot Module Replacement
 
-**HRM isn't working for Svelte3 yet. See: https://github.com/sveltejs/svelte-loader/issues/74**
+**HMR may be working for Svelte3 now, but I haven't tested it. See: https://github.com/sveltejs/svelte-loader/issues/92**
 
 [HMR](https://webpack.js.org/concepts/hot-module-replacement/) allows to reload / add / remove modules live in the browser without
 reloading the page. This allows any change you make to your Svelte components to be applied as soon as you save,
@@ -148,7 +147,7 @@ preserving their current state.
 
 To work on this gem locally, may want to clone and setup [the example application](https://github.com/will-wow/contacts).
 
-Then you need to change the example app Gemfile to point to your local repository and run bundle afterwise:
+Then you need to change the example app Gemfile to point to your local repository and run bundle afterwards:
 
 ```ruby
 gem 'webpacker-svelte', path: '~/code/webpacker-svelte/'
@@ -157,16 +156,16 @@ gem 'webpacker-svelte', path: '~/code/webpacker-svelte/'
 Finally, you need to tell Yarn to use your local copy of the NPM module in this application, using [`yarn link`](https://yarnpkg.com/en/docs/cli/link):
 
 ```bash
-$ cd ~/code/webpacker-svelte/javascript/webpacker_svelte-npm-module/
-$ yarn
-$ cd dist/
-$ yarn             # compiles the code from src/ to dist/
+$ cd /path/to/webpacker-svelte/javascript/webpacker_svelte-npm-module/
+$ yarn install
+$ yarn build # compiles the code from src/ to dist/
 $ yarn link
 success Registered "webpacker-svelte".
 info You can now run `yarn link "webpacker-svelte"` in the projects where you want to use this module and it will be used instead.
-$ cd ~/code/contacts/
+$ cd /path/to/contacts/
 $ yarn link webpacker-svelte
 success Registered "webpacker-svelte".
+$ yarn install
 ```
 
 After launching `./bin/webpack-watcher` and `./bin/rails server` in your example app directory, you can now change the Ruby or Javascript code in your local `webpacker-svelte` repository, and test it immediately using the example app.
@@ -175,10 +174,18 @@ After launching `./bin/webpack-watcher` and `./bin/rails server` in your example
 
 If you changed the local javascript package, first ensure it is built (see above).
 
+You'll have to install chromedriver to run the tests:
+
+```bash
+$ brew install --cask chromedriver
+# Or
+$ npm install -g chromedriver
+```
+
 To run the test suite:
 
 ```sh
-$ rake test
+$ bundle execute rake test
 ```
 
 If you change the javascript code, please ensure there are no style errors before committing:
