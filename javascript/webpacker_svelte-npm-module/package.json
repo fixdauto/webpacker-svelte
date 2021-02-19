@@ -1,12 +1,12 @@
 {
   "name": "webpacker-svelte",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "webpacker-svelte integration",
   "homepage": "https://github.com/will-wow/webpacker-svelte",
   "repository": "will-wow/webpacker-svelte",
   "author": {
     "name": "Will Ockelmann-Wagner",
-    "email": "will.ockelmann.wagner@gmail.com"
+    "email": "will@willwow.dev"
   },
   "license": "MIT",
   "main": "dist/webpacker-svelte.cjs.js",

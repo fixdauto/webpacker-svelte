@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    webpacker-svelte (0.0.0)
+    webpacker-svelte (1.0.0)
       webpacker
 
 GEM
