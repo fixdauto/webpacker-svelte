@@ -1,6 +1,10 @@
-# Webpacker-Svelte [![CircleCI](https://circleci.com/gh/will-wow/webpacker-svelte.svg?style=svg)](https://circleci.com/gh/will-wow/webpacker-svelte)
+# Webpacker-Svelte
 
 Webpacker-Svelte makes it easy to use [Svelte](https://svelte.dev) with [Webpacker](https://github.com/rails/webpacker) in your Rails applications.
+
+[![Gem](https://img.shields.io/gem/v/webpacker-svelte)](https://rubygems.org/gems/webpacker-svelte)
+[![npm package](https://img.shields.io/npm/v/webpacker-svelte.svg)](https://www.npmjs.com/package/webpacker-svelte)
+[![CircleCI](https://circleci.com/gh/will-wow/webpacker-svelte.svg?style=svg)](https://circleci.com/gh/will-wow/webpacker-svelte)
 
 This is a port of [@renchap](https://github.com/renchap)'s excellent [webpacker-react](https://github.com/renchap/webpacker-react).
 
@@ -8,7 +12,7 @@ It supports Webpacker 1.2+.
 
 An example application is available: https://github.com/will-wow/contacts
 
-For more information, see the [blog post](https://blog.carbonfive.com/2019/10/29/the-best-of-both-worlds-html-apps-svelte)
+For more information, see the [blog post](https://blog.carbonfive.com/2019/10/29/the-best-of-both-worlds-html-apps-svelte).
 
 ## Installation
 
